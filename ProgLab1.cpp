@@ -18,8 +18,9 @@ void Pop(stack* stock){
     *stock=f;
 }
 int main(){
-    cout << "|====<Enter numbers for stack>====|\n";
-    cout << "|========<Stack's end - 0>========|\n";
+    bool mode= true; //true - режим с интерфейсом, falce - режим без
+    if(mode)cout << "|====<Enter numbers for stack>====|\n";
+    if(mode)cout << "|========<Stack's end - 0>========|\n";
     stack dwarf;
     dwarf=nullptr;
     int number;
@@ -30,10 +31,10 @@ int main(){
             cin >> number;
         }
     }
-    cout << "|=========<Display stack>=========|\n";
+    if(mode)cout << "|=========<Display stack>=========|\n";
     while(dwarf){
         cout << dwarf->data << "\n";
         Pop(&dwarf);
     }
-    cout << "|==============<Done>=============|\n";
+    if(mode)cout << "|==============<Done>=============|\n";
 }
