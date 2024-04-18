@@ -18,7 +18,7 @@ void Pop(stack* stock){
     *stock=f;
 }
 int main(){
-    bool mode= true; //true - режим с интерфейсом, falce - режим без
+    bool mode= false; //true - режим с интерфейсом, false - режим без
     if(mode)cout << "|====<Enter numbers for stack>====|\n";
     if(mode)cout << "|========<Stack's end - 0>========|\n";
     stack dwarf;
@@ -27,8 +27,8 @@ int main(){
     cin >> number;
     while(number!=0){
         if(number>0){
-            Push(&dwarf, number);
             cin >> number;
+            Push(&dwarf, number);
         }
     }
     if(mode)cout << "|=========<Display stack>=========|\n";
