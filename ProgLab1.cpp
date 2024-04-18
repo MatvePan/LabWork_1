@@ -24,7 +24,6 @@ int main(){
     stack dwarf;
     dwarf=nullptr;
     int number;
-    cin >> number;
     while(number!=0){
         if(number>0){
             cin >> number;
