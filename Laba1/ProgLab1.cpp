@@ -35,9 +35,9 @@ struct Stack{
     }
 };
 int main(int args, char* argv[]) {
-    bool mode=false; //true - режим с интерфейсом, false - режим без
+    bool mode=true; //true - режим с интерфейсом, false - режим без
     for(int i = 0; i < args; i++)
-        if (_stricmp(argv[i], "true")==0)mode=true;
+        if (_stricmp(argv[i], "false")==0)mode=false;
     if(mode)cout << "|====<Enter numbers for stack>====|\n";
     if(mode)cout << "|========<Stack's end - 0>========|\n";
     Stack dwarf;
