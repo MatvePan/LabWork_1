@@ -1,7 +1,8 @@
 #include "iostream"
+#include "cstring"
 using namespace std;
 
-struct Number{
+struct Number {
     int data;
     Number* last;
     Number(int data):data(data), last(nullptr){};
@@ -12,9 +13,9 @@ struct Stack{
     bool empty(){
         return lest==nullptr;
     }
-    void Push(int data){
+    void Push(int data) {
         Number* steck=new Number(data);
-        if(empty()){
+        if (empty()){
             lest=steck;
         }
         else{
@@ -29,21 +30,27 @@ struct Stack{
         delete del;
         return num;
     }
+    int Show(){
+        return lest->data;
+    }
 };
-int main(){
-    bool mode=false; //true - режим с интерфейсом, falce - режим без
+int main(int args, char* argv[]) {
+    bool mode=false; //true - режим с интерфейсом, false - режим без
+    for(int i = 0; i < args; i++)
+        if (_stricmp(argv[i], "true")==0)mode=true;
     if(mode)cout << "|====<Enter numbers for stack>====|\n";
     if(mode)cout << "|========<Stack's end - 0>========|\n";
     Stack dwarf;
     int number;
-    while(cin >> number and number!=0){
-        if(number>0){
-            dwarf.Push(number);
-        }
+    while (cin >> number and number != 0) {
+        dwarf.Push(number);
     }
     if(mode)cout << "|=========<Display stack>=========|\n";
     while(!dwarf.empty()){
-        cout << dwarf.Pop() << "\n";
+        if(dwarf.Show()>0)
+            cout << dwarf.Pop() << "\n";
+        else
+            dwarf.Pop();
     }
     if(mode)cout << "|==============<Done>=============|\n";
 }
